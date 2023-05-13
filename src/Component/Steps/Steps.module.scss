@@ -1,5 +1,33 @@
 .container {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1em;
 
+  padding-block: 2em 7em; //for the background image to display in full width and height
+
+  background-image: url("../../../assets/images/bg-sidebar-mobile.svg");
   background-repeat: no-repeat;
+  min-width: 100%;
+  min-height: 100%;
+
+  .step {
+    display: grid;
+    justify-content: center;
+
+    padding: 0.5em 0.75em;
+    width: 37px;
+
+    border: 1px solid var(--clr-neutral-100);
+    border-radius: 50em;
+
+    color: var(--clr-neutral-100);
+  }
+  .selected {
+    background-color: var(--clr-primary-200);
+    border-color: var(--clr-primary-200);
+    color: var(--clr-primary-900);
+
+    font-weight: var(--font-weight-bold);
+  }
 }

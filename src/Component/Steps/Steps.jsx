@@ -4,10 +4,18 @@ export default function Steps() {
   return (
     <>
       <section className={classes.container}>
-        <p>Step 1</p>
-        <p>Step 2</p>
-        <p>Step 3</p>
-        <p>Step 4</p>
+        <div className={`${classes.step} ${classes.selected}`}>
+          <p>1</p>
+        </div>
+        <div className={classes.step}>
+          <p>2</p>
+        </div>
+        <div className={classes.step}>
+          <p>3</p>
+        </div>
+        <div className={classes.step}>
+          <p>4</p>
+        </div>
       </section>
     </>
   );
