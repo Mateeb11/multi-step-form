@@ -11,13 +11,47 @@ export default function Info({ info, setInfo, setStep }) {
   const [nameErrorMessage, setNameErrorMessage] = useState(
     "This field is required"
   );
+  const nameHandler = (e) => {
+    if (e.target.value === "") {
+      setIsNameValid(false);
+    } else {
+      setIsNameValid(true);
+      setInfo({ ...info, Name: e.target.value });
+    }
+  };
 
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [emailErrorMessage, setEmailErrorMessage] = useState(nameErrorMessage);
+  const emailHandler = (e) => {
+    if (validator.isEmail(e.target.value)) {
+      setIsEmailValid(true);
+      setInfo({ ...info, Email: e.target.value });
+    } else {
+      if (e.target.value === "") {
+        setEmailErrorMessage(nameErrorMessage);
+      } else {
+        setEmailErrorMessage("Incorrect email");
+      }
+      setIsEmailValid(false);
+    }
+  };
 
   const [isNumberValid, setIsNumberValid] = useState(false);
   const [numberErrorMessage, setNumberErrorMessage] =
     useState(nameErrorMessage);
+  const numberHandler = (e) => {
+    if (validator.isMobilePhone(e.target.value)) {
+      setIsNumberValid(true);
+      setInfo({ ...info, Number: e.target.value });
+    } else {
+      if (e.target.value === "") {
+        setNumberErrorMessage(nameErrorMessage);
+      } else {
+        setNumberErrorMessage("Incorrect phone number");
+      }
+      setIsNumberValid(false);
+    }
+  };
 
   const formSubmitHandler = () => {
     setIsFormSubmited(true);
@@ -29,62 +63,14 @@ export default function Info({ info, setInfo, setStep }) {
   return (
     <>
       <label htmlFor="">Name</label>
-      <input
-        type="name"
-        name="name"
-        id=""
-        onChange={(e) => {
-          if (e.target.value === "") {
-            setIsNameValid(false);
-          } else {
-            setIsNameValid(true);
-          }
-          setInfo({ ...info, Name: e.target.value });
-        }}
-      />
+      <input type="name" name="name" id="" onChange={nameHandler} />
       {!isNameValid && isFormSubmited && <p>{nameErrorMessage}</p>}
       <label htmlFor="">Email</label>
-      <input
-        type="email"
-        name="email"
-        id=""
-        onChange={(e) => {
-          if (validator.isEmail(e.target.value)) {
-            setIsEmailValid(true);
-            setInfo({ ...info, Email: e.target.value });
-          } else {
-            if (e.target.value === "") {
-              setEmailErrorMessage(nameErrorMessage);
-            } else {
-              setEmailErrorMessage("Incorrect email");
-            }
-            setIsEmailValid(false);
-          }
-
-          setInfo({ ...info, Email: e.target.value });
-        }}
-      />
+      <input type="email" name="email" id="" onChange={emailHandler} />
       {!isEmailValid && isFormSubmited && <p>{emailErrorMessage}</p>}
 
       <label htmlFor="">Phone Number</label>
-      <input
-        type="number"
-        name="number"
-        id=""
-        onChange={(e) => {
-          if (validator.isMobilePhone(e.target.value)) {
-            setIsNumberValid(true);
-          } else {
-            if (e.target.value === "") {
-              setNumberErrorMessage(nameErrorMessage);
-            } else {
-              setNumberErrorMessage("Incorrect phone number");
-            }
-            setIsNumberValid(false);
-          }
-          setInfo({ ...info, Number: e.target.value });
-        }}
-      />
+      <input type="number" name="number" id="" onChange={numberHandler} />
       {!isNumberValid && isFormSubmited && <p>{numberErrorMessage}</p>}
 
       <button onClick={formSubmitHandler}>aklsdklas</button>
