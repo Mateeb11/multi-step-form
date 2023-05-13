@@ -5,6 +5,7 @@ import { useState } from "react";
 import classes from "./Info.module.scss";
 
 import Input from "../UI/Input";
+import Form from "../UI/Form";
 
 export default function Info({ info, setInfo, setStep }) {
   const [isFormSubmited, setIsFormSubmited] = useState(false);
@@ -63,27 +64,31 @@ export default function Info({ info, setInfo, setStep }) {
     }
   };
   return (
-    <>
+    <Form
+      title={"Presonal info"}
+      description={"Please provide your name, email address, and phone number."}
+    >
       <Input
         title={"Name"}
         type={"text"}
         name={"name"}
+        placeholder={"e.g Stephen King"}
         onChange={nameHandler}
       />
       <Input
         title={"Email"}
         type={"email"}
         name={"email"}
+        placeholder={"e.g stephenking@lorem.com"}
         onChange={emailHandler}
       />
       <Input
         title={"Phone Number"}
         type={"number"}
         name={"phone number"}
+        placeholder={"e.g +966 123456789"}
         onChange={numberHandler}
       />
-
-      <button onClick={formSubmitHandler}>aklsdklas</button>
-    </>
+    </Form>
   );
 }

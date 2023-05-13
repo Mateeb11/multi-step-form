@@ -14,12 +14,9 @@ export default function Content() {
     <>
       <main className={classes.container}>
         <Steps step={step} />
-        <div>
-          {step === 1 && (
-            <Info setInfo={setInfo} info={info} setStep={setStep} />
-          )}
-          {step === 2 && <Plan />}
-        </div>
+
+        {step === 1 && <Info setInfo={setInfo} info={info} setStep={setStep} />}
+        {step === 2 && <Plan />}
       </main>
     </>
   );
