@@ -13,7 +13,7 @@ export default function Content() {
   return (
     <>
       <main className={classes.container}>
-        <Steps />
+        <Steps step={step} />
         <div>
           {step === 1 && (
             <Info setInfo={setInfo} info={info} setStep={setStep} />
