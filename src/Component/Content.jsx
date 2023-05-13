@@ -4,6 +4,7 @@ import classes from "./Content.module.scss";
 
 import Info from "./Form/Info";
 import Plan from "./Form/Plan";
+import Steps from "./Steps/Steps";
 
 export default function Content() {
   const [info, setInfo] = useState({ Name: "", Email: "sajkdkj", Number: "" });
@@ -11,8 +12,15 @@ export default function Content() {
 
   return (
     <>
-      {step === 1 && <Info setInfo={setInfo} info={info} setStep={setStep} />}
-      {step === 2 && <Plan />}
+      <main className={classes.container}>
+        <Steps />
+        <div>
+          {step === 1 && (
+            <Info setInfo={setInfo} info={info} setStep={setStep} />
+          )}
+          {step === 2 && <Plan />}
+        </div>
+      </main>
     </>
   );
 }
