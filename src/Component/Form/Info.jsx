@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import classes from "./Info.module.scss";
 
+import Input from "../UI/Input";
+
 export default function Info({ info, setInfo, setStep }) {
   const [isFormSubmited, setIsFormSubmited] = useState(false);
 
@@ -62,16 +64,24 @@ export default function Info({ info, setInfo, setStep }) {
   };
   return (
     <>
-      <label htmlFor="">Name</label>
-      <input type="name" name="name" id="" onChange={nameHandler} />
-      {!isNameValid && isFormSubmited && <p>{nameErrorMessage}</p>}
-      <label htmlFor="">Email</label>
-      <input type="email" name="email" id="" onChange={emailHandler} />
-      {!isEmailValid && isFormSubmited && <p>{emailErrorMessage}</p>}
-
-      <label htmlFor="">Phone Number</label>
-      <input type="number" name="number" id="" onChange={numberHandler} />
-      {!isNumberValid && isFormSubmited && <p>{numberErrorMessage}</p>}
+      <Input
+        title={"Name"}
+        type={"text"}
+        name={"name"}
+        onChange={nameHandler}
+      />
+      <Input
+        title={"Email"}
+        type={"email"}
+        name={"email"}
+        onChange={emailHandler}
+      />
+      <Input
+        title={"Phone Number"}
+        type={"number"}
+        name={"phone number"}
+        onChange={numberHandler}
+      />
 
       <button onClick={formSubmitHandler}>aklsdklas</button>
     </>
