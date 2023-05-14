@@ -18,6 +18,12 @@ export default function Content() {
         {step === 1 && <Info setInfo={setInfo} info={info} setStep={setStep} />}
         {step === 2 && <Plan />}
       </main>
+      <div className={classes.buttons}>
+        <button className={`${classes.next} ${step === 4 && classes.confirm}`}>
+          {step === 4 ? "Confirm" : "Next Step"}
+        </button>
+        {step !== 1 && <button className={classes.back}>Go Back</button>}
+      </div>
     </>
   );
 }
