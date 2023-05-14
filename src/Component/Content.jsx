@@ -8,13 +8,15 @@ import Steps from "./Steps/Steps";
 import Navigation from "./Steps/navigation";
 
 export default function Content() {
+  const [step, setStep] = useState(2);
+
   const [info, setInfo] = useState({ Name: "", Email: "", Number: "" });
   const [isInfoFormValid, setIsInfoFormValid] = useState({
     isSubmitted: false,
     isValid: false,
   });
 
-  const [step, setStep] = useState(2);
+  const [plan, setPlan] = useState({ selectedPlan: "Arcade", time: "Monthly" });
 
   return (
     <>
@@ -29,7 +31,7 @@ export default function Content() {
             setInfo={setInfo}
           />
         )}
-        {step === 2 && <Plan />}
+        {step === 2 && <Plan plan={plan} setPlan={setPlan} />}
       </main>
       <Navigation
         step={step}
