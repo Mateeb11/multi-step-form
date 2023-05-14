@@ -7,8 +7,8 @@ import classes from "./Info.module.scss";
 import Input from "../UI/Input";
 import Form from "../UI/Form";
 
-export default function Info({ info, setInfo, setStep }) {
-  const [isFormSubmited, setIsFormSubmited] = useState(false);
+export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
+  const [info, setInfo] = useState({ Name: "", Email: "", Number: "" });
 
   const [isNameValid, setIsNameValid] = useState(false);
   const [nameErrorMessage, setNameErrorMessage] = useState(
@@ -17,9 +17,13 @@ export default function Info({ info, setInfo, setStep }) {
   const nameHandler = (e) => {
     if (e.target.value === "") {
       setIsNameValid(false);
+      setIsInfoFormValid({ ...isInfoFormValid, isValid: false });
     } else {
       setIsNameValid(true);
       setInfo({ ...info, Name: e.target.value });
+      if (isEmailValid && isNumberValid) {
+        setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
+      }
     }
   };
 
@@ -29,6 +33,9 @@ export default function Info({ info, setInfo, setStep }) {
     if (validator.isEmail(e.target.value)) {
       setIsEmailValid(true);
       setInfo({ ...info, Email: e.target.value });
+      if (isNameValid && isNumberValid) {
+        setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
+      }
     } else {
       if (e.target.value === "") {
         setEmailErrorMessage(nameErrorMessage);
@@ -36,6 +43,7 @@ export default function Info({ info, setInfo, setStep }) {
         setEmailErrorMessage("Incorrect email");
       }
       setIsEmailValid(false);
+      setIsInfoFormValid({ ...isInfoFormValid, isValid: false });
     }
   };
 
@@ -46,6 +54,9 @@ export default function Info({ info, setInfo, setStep }) {
     if (validator.isMobilePhone(e.target.value)) {
       setIsNumberValid(true);
       setInfo({ ...info, Number: e.target.value });
+      if (isEmailValid && isNameValid) {
+        setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
+      }
     } else {
       if (e.target.value === "") {
         setNumberErrorMessage(nameErrorMessage);
@@ -53,15 +64,12 @@ export default function Info({ info, setInfo, setStep }) {
         setNumberErrorMessage("Incorrect phone number");
       }
       setIsNumberValid(false);
+      setIsInfoFormValid({ ...isInfoFormValid, isValid: false });
     }
   };
 
   const formSubmitHandler = () => {
-    setIsFormSubmited(true);
-
-    if (isEmailValid && isNameValid && isNumberValid) {
-      setStep(2);
-    }
+    setIsInfoFormValid({ ...isInfoFormValid, isSubmitted: true });
   };
   return (
     <Form
