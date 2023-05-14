@@ -40,10 +40,14 @@ export default function Plan() {
           <p className={classes.offer}>2 months free</p>
         </div>
       </Box>
-      <label className={classes.switch}>
-        <input type="checkbox" />
-        <span className={classes.slider}></span>
-      </label>
+      <div className={classes.time}>
+        <p>Monthly</p>
+        <label className={classes.switch}>
+          <input type="checkbox" />
+          <span className={classes.slider}></span>
+        </label>
+        <p>Yearly</p>
+      </div>
     </Form>
   );
 }
