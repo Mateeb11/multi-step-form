@@ -1,9 +1,11 @@
 import classes from "./Plan.module.scss";
 
+import Box from "../UI/Box";
+
 export default function Plan() {
   return (
-    <>
-      <h1>hi</h1>
-    </>
+    <section className={classes.container}>
+      <Box>hi</Box>
+    </section>
   );
 }
