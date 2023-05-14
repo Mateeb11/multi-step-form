@@ -1,4 +1,6 @@
 .box {
+  position: relative;
+
   display: flex;
   align-items: start;
 
@@ -7,4 +9,14 @@
 
   gap: 1em;
   padding: 1em;
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+
+    margin: -1em;
+    border-radius: 0.5em;
+  }
 }
