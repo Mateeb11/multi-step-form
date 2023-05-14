@@ -5,6 +5,7 @@ import classes from "./Content.module.scss";
 import Info from "./Form/Info";
 import Plan from "./Form/Plan";
 import Steps from "./Steps/Steps";
+import Navigation from "./Steps/navigation";
 
 export default function Content() {
   const [isInfoFormValid, setIsInfoFormValid] = useState({
@@ -12,16 +13,7 @@ export default function Content() {
     isValid: false,
   });
 
-  const [step, setStep] = useState(1);
-
-  const stepHandler = () => {
-    if (step === 1) {
-      setIsInfoFormValid({ ...isInfoFormValid, isSubmitted: true });
-      if (isInfoFormValid.isValid) {
-        setStep(step + 1);
-      }
-    }
-  };
+  const [step, setStep] = useState(2);
 
   return (
     <>
@@ -36,15 +28,12 @@ export default function Content() {
         )}
         {step === 2 && <Plan />}
       </main>
-      <div className={classes.buttons}>
-        <button
-          className={`${classes.next} ${step === 4 && classes.confirm}`}
-          onClick={stepHandler}
-        >
-          {step === 4 ? "Confirm" : "Next Step"}
-        </button>
-        {step !== 1 && <button className={classes.back}>Go Back</button>}
-      </div>
+      <Navigation
+        step={step}
+        setStep={setStep}
+        isFormValid={isInfoFormValid}
+        setIsFormValid={setIsInfoFormValid}
+      />
     </>
   );
 }
