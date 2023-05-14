@@ -8,19 +8,14 @@ import Input from "../UI/Input";
 import Form from "../UI/Form";
 
 export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
-  const [info, setInfo] = useState({ Name: "", Email: "", Number: "" });
-
   const [isNameValid, setIsNameValid] = useState(false);
-  const [nameErrorMessage, setNameErrorMessage] = useState(
-    "This field is required"
-  );
+  const nameErrorMessage = "This field is required";
   const nameHandler = (e) => {
     if (e.target.value === "") {
       setIsNameValid(false);
       setIsInfoFormValid({ ...isInfoFormValid, isValid: false });
     } else {
       setIsNameValid(true);
-      setInfo({ ...info, Name: e.target.value });
       if (isEmailValid && isNumberValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
@@ -32,7 +27,6 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
   const emailHandler = (e) => {
     if (validator.isEmail(e.target.value)) {
       setIsEmailValid(true);
-      setInfo({ ...info, Email: e.target.value });
       if (isNameValid && isNumberValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
@@ -53,7 +47,6 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
   const numberHandler = (e) => {
     if (validator.isMobilePhone(e.target.value)) {
       setIsNumberValid(true);
-      setInfo({ ...info, Number: e.target.value });
       if (isEmailValid && isNameValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
@@ -68,9 +61,6 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
     }
   };
 
-  const formSubmitHandler = () => {
-    setIsInfoFormValid({ ...isInfoFormValid, isSubmitted: true });
-  };
   return (
     <Form
       title={"Presonal info"}
@@ -82,13 +72,19 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
         name={"name"}
         placeholder={"e.g Stephen King"}
         onChange={nameHandler}
+        errorMessage={nameErrorMessage}
+        isValid={isNameValid}
+        isSubmitted={isInfoFormValid.isSubmitted}
       />
       <Input
-        title={"Email"}
+        title={"Email Address"}
         type={"email"}
         name={"email"}
         placeholder={"e.g stephenking@lorem.com"}
         onChange={emailHandler}
+        errorMessage={emailErrorMessage}
+        isValid={isEmailValid}
+        isSubmitted={isInfoFormValid.isSubmitted}
       />
       <Input
         title={"Phone Number"}
@@ -96,6 +92,9 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
         name={"phone number"}
         placeholder={"e.g +966 123456789"}
         onChange={numberHandler}
+        errorMessage={numberErrorMessage}
+        isValid={isNumberValid}
+        isSubmitted={isInfoFormValid.isSubmitted}
       />
     </Form>
   );

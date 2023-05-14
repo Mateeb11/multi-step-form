@@ -7,17 +7,24 @@ export default function Input({
   placeholder,
   onChange,
   errorMessage,
-  isError,
+  isValid,
+  isSubmitted,
 }) {
   return (
     <div className={classes.input}>
-      <label htmlFor={name}>{title}</label>
+      <div className={classes.label}>
+        <label htmlFor={name}>{title}</label>
+        {!isValid && isSubmitted && (
+          <span className={classes.errorMessage}>{errorMessage}</span>
+        )}
+      </div>
       <input
         type={type}
         name={name}
         id={name}
         placeholder={placeholder}
         onChange={onChange}
+        className={`${!isValid && isSubmitted && classes.isError}`}
       />
     </div>
   );
