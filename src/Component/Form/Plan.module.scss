@@ -1,3 +1,21 @@
-.container {
-  background-color: var(--clr-neutral-100);
+.info {
+  display: grid;
+  gap: 0.25em;
+
+  .title {
+    color: var(--clr-primary-900);
+    font-size: var(--font-size-semi-medium);
+  }
+  .price,
+  .offer {
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-light);
+  }
+  .offer {
+    color: var(--clr-primary-900);
+  }
+}
+.selected {
+  background-color: var(--clr-neutral-400);
+  border-color: var(--clr-primary-700) !important;
 }

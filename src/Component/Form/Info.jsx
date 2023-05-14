@@ -18,8 +18,8 @@ export default function Info({
   );
   const nameErrorMessage = "This field is required";
   const nameHandler = (e) => {
-    setInfo({ ...info, Name: "" });
-    setInfo({ ...info, Name: e.target.value });
+    setInfo({ ...info, Name: "" }); //cleaning the variable
+    setInfo({ ...info, Name: e.target.value }); //settign the variable again
     if (e.target.value === "") {
       setIsNameValid(false);
       setIsInfoFormValid({ ...isInfoFormValid, isValid: false });
@@ -33,7 +33,7 @@ export default function Info({
   };
 
   const [isEmailValid, setIsEmailValid] = useState(
-    info.Email === "" ? false : true
+    info.Email === "" ? false : true // if the user already fill the data before and come back to the previous step the data the valid state will be true
   );
   const [emailErrorMessage, setEmailErrorMessage] = useState(nameErrorMessage);
   const emailHandler = (e) => {
