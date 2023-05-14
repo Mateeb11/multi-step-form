@@ -19,6 +19,15 @@ export default function Plan({ plan, setPlan }) {
       setPlan({ ...plan, selectedPlan: "Pro" });
     }
   };
+
+  const switcherHandler = () => {
+    if (plan.time === "Monthly") {
+      setPlan({ ...plan, time: "Yearly" });
+    } else {
+      setPlan({ ...plan, time: "Monthly" });
+    }
+  };
+
   return (
     <Form
       title="Select your plan"
@@ -34,7 +43,9 @@ export default function Plan({ plan, setPlan }) {
         <div className={classes.info}>
           <h3 className={classes.title}>Arcade</h3>
           <p className={classes.price}>$90/yr</p>
-          <p className={classes.offer}>2 months free</p>
+          {plan.time === "Yearly" && (
+            <p className={classes.offer}>2 months free</p>
+          )}
         </div>
       </Box>
       <Box
@@ -46,7 +57,9 @@ export default function Plan({ plan, setPlan }) {
         <div className={classes.info}>
           <h3 className={classes.title}>Advanced</h3>
           <p className={classes.price}>$90/yr</p>
-          <p className={classes.offer}>2 months free</p>
+          {plan.time === "Yearly" && (
+            <p className={classes.offer}>2 months free</p>
+          )}
         </div>
       </Box>
       <Box
@@ -58,16 +71,26 @@ export default function Plan({ plan, setPlan }) {
         <div className={classes.info}>
           <h3 className={classes.title}>Pro</h3>
           <p className={classes.price}>$90/yr</p>
-          <p className={classes.offer}>2 months free</p>
+          {plan.time === "Yearly" && (
+            <p className={classes.offer}>2 months free</p>
+          )}
         </div>
       </Box>
       <div className={classes.time}>
-        <p>Monthly</p>
+        <p className={plan.time === "Monthly" ? classes.checked : undefined}>
+          Monthly
+        </p>
         <label className={classes.switch}>
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            onClick={switcherHandler}
+            defaultChecked={plan.time === "Yearly" && true}
+          />
           <span className={classes.slider}></span>
         </label>
-        <p>Yearly</p>
+        <p className={plan.time === "Yearly" ? classes.checked : undefined}>
+          Yearly
+        </p>
       </div>
     </Form>
   );
