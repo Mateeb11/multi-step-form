@@ -16,7 +16,11 @@ export default function Content() {
     isValid: false,
   });
 
-  const [plan, setPlan] = useState({ selectedPlan: "Arcade", time: "Monthly" });
+  const [plan, setPlan] = useState({
+    selectedPlan: "Arcade",
+    time: "Monthly",
+    price: 9,
+  });
 
   return (
     <>
