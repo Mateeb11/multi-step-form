@@ -8,12 +8,13 @@ import Steps from "./Steps/Steps";
 import Navigation from "./Steps/navigation";
 
 export default function Content() {
+  const [info, setInfo] = useState({ Name: "", Email: "", Number: "" });
   const [isInfoFormValid, setIsInfoFormValid] = useState({
     isSubmitted: false,
     isValid: false,
   });
 
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
   return (
     <>
@@ -24,6 +25,8 @@ export default function Content() {
           <Info
             isInfoFormValid={isInfoFormValid}
             setIsInfoFormValid={setIsInfoFormValid}
+            info={info}
+            setInfo={setInfo}
           />
         )}
         {step === 2 && <Plan />}

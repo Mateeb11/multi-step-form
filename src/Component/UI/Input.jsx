@@ -4,6 +4,7 @@ export default function Input({
   title,
   type,
   name,
+  value,
   placeholder,
   onChange,
   errorMessage,
@@ -21,6 +22,7 @@ export default function Input({
       <input
         type={type}
         name={name}
+        value={value}
         id={name}
         placeholder={placeholder}
         onChange={onChange}

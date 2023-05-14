@@ -7,26 +7,41 @@ import classes from "./Info.module.scss";
 import Input from "../UI/Input";
 import Form from "../UI/Form";
 
-export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
-  const [isNameValid, setIsNameValid] = useState(false);
+export default function Info({
+  setIsInfoFormValid,
+  isInfoFormValid,
+  info,
+  setInfo,
+}) {
+  const [isNameValid, setIsNameValid] = useState(
+    info.Name === "" ? false : true
+  );
   const nameErrorMessage = "This field is required";
   const nameHandler = (e) => {
+    setInfo({ ...info, Name: "" });
+    setInfo({ ...info, Name: e.target.value });
     if (e.target.value === "") {
       setIsNameValid(false);
       setIsInfoFormValid({ ...isInfoFormValid, isValid: false });
     } else {
       setIsNameValid(true);
+
       if (isEmailValid && isNumberValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
     }
   };
 
-  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(
+    info.Email === "" ? false : true
+  );
   const [emailErrorMessage, setEmailErrorMessage] = useState(nameErrorMessage);
   const emailHandler = (e) => {
+    setInfo({ ...info, Email: "" });
+    setInfo({ ...info, Email: e.target.value });
     if (validator.isEmail(e.target.value)) {
       setIsEmailValid(true);
+
       if (isNameValid && isNumberValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
@@ -41,12 +56,16 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
     }
   };
 
-  const [isNumberValid, setIsNumberValid] = useState(false);
+  const [isNumberValid, setIsNumberValid] = useState(
+    info.Number === "" ? false : true
+  );
   const [numberErrorMessage, setNumberErrorMessage] =
     useState(nameErrorMessage);
   const numberHandler = (e) => {
+    setInfo({ ...info, Number: "" });
     if (validator.isMobilePhone(e.target.value)) {
       setIsNumberValid(true);
+      setInfo({ ...info, Number: e.target.value });
       if (isEmailValid && isNameValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
@@ -61,6 +80,9 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
     }
   };
 
+  const formSubmitHandler = () => {
+    setIsInfoFormValid({ ...isInfoFormValid, isSubmitted: true });
+  };
   return (
     <Form
       title={"Presonal info"}
@@ -70,6 +92,7 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
         title={"Name"}
         type={"text"}
         name={"name"}
+        value={info.Name}
         placeholder={"e.g Stephen King"}
         onChange={nameHandler}
         errorMessage={nameErrorMessage}
@@ -80,6 +103,7 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
         title={"Email Address"}
         type={"email"}
         name={"email"}
+        value={info.Email}
         placeholder={"e.g stephenking@lorem.com"}
         onChange={emailHandler}
         errorMessage={emailErrorMessage}
@@ -90,6 +114,7 @@ export default function Info({ setIsInfoFormValid, isInfoFormValid }) {
         title={"Phone Number"}
         type={"number"}
         name={"phone number"}
+        value={info.Number}
         placeholder={"e.g +966 123456789"}
         onChange={numberHandler}
         errorMessage={numberErrorMessage}
