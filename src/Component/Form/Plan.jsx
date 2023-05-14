@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import classes from "./Plan.module.scss";
 
 import Box from "../UI/Box";
@@ -12,6 +14,7 @@ export default function Plan() {
     <Form
       title="Select your plan"
       description=" You have the option of monthly or yearly billing."
+      className={classes.form}
     >
       <Box className={classes.selected}>
         <img src={arcadeImg} alt="arcade controller icon" />
@@ -37,6 +40,10 @@ export default function Plan() {
           <p className={classes.offer}>2 months free</p>
         </div>
       </Box>
+      <label className={classes.switch}>
+        <input type="checkbox" />
+        <span className={classes.slider}></span>
+      </label>
     </Form>
   );
 }
