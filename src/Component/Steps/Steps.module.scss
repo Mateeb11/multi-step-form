@@ -43,11 +43,14 @@
   .container {
     flex-direction: column;
     justify-content: start;
-    gap: 1.5em;
+    gap: 2em;
 
     background-image: url("../../../assets/images/bg-sidebar-desktop.svg");
+    background-size: contain;
 
-    padding: 2em 2em 15.25em 2em;
+    padding: 2em 4em 7em 1.5em;
+
+    margin-bottom: 7em;
 
     .stepContainer {
       display: flex;
