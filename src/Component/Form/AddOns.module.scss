@@ -4,7 +4,6 @@
 
   align-items: center;
   justify-content: space-between;
-  margin: 0em;
 
   .container {
     display: flex;
@@ -60,9 +59,25 @@
       visibility: visible;
     }
   }
+  &::before {
+    margin: 0em;
+  }
 }
 
 .selectedBox {
   background-color: var(--clr-neutral-400);
   border-color: var(--clr-primary-700) !important;
+}
+
+@media (min-width: 870px) {
+  .box {
+    padding-block: 1.5em;
+    .info {
+      gap: 0.5em;
+
+      span {
+        font-size: var(--font-size-small);
+      }
+    }
+  }
 }
