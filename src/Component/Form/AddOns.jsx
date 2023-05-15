@@ -17,7 +17,7 @@ export default function AddOns({ addOns, setAddOns, planTime }) {
     let arr = [...addOns];
     if (planTime === "Yearly") {
       arr.forEach((object) => {
-        object.price <= 10 && (object.price *= 10);
+        object.price < 10 && (object.price *= 10);
       });
       setAddOns([...arr]);
     } else if (planTime === "Monthly") {
@@ -29,20 +29,17 @@ export default function AddOns({ addOns, setAddOns, planTime }) {
   }, []);
 
   const addOnsHandler = (e) => {
-    // console.log(findAddOns(addOns, e.target.id));
     if (findAddOns(addOns, e.target.id)) {
       let arr = [...addOns];
       arr = arr.filter((addOns) => addOns.title != e.target.id);
 
       setAddOns([...arr]);
     } else {
-      let addOnPrice = 1;
+      let addOnPrice = e.target.id === "Online service" ? 1 : 2;
 
       setAddOns([...addOns, { title: e.target.id, price: addOnPrice }]);
     }
   };
-
-  console.log(addOns);
 
   return (
     <>
@@ -70,7 +67,57 @@ export default function AddOns({ addOns, setAddOns, planTime }) {
               <span>Access to multiplayer games</span>
             </div>
           </div>
-          <p className={classes.price}>+$10/yr</p>
+          <p className={classes.price}>
+            {planTime === "Monthly" ? "+$1/mo" : "+$10/yr"}
+          </p>
+        </Box>
+        <Box
+          id="Larger storage"
+          onClick={addOnsHandler}
+          className={`${classes.box} ${
+            findAddOns(addOns, "Larger storage") && classes.selectedBox
+          }`}
+        >
+          <div className={classes.container}>
+            <div
+              className={`${classes.checkbox} ${
+                findAddOns(addOns, "Larger storage") && classes.checked
+              }`}
+            >
+              <img src={checkmark} alt="" width={13} height={13} />
+            </div>
+            <div className={classes.info}>
+              <p>Larger storage</p>
+              <span>Extra 1TB of cloud save</span>
+            </div>
+          </div>
+          <p className={classes.price}>
+            {planTime === "Monthly" ? "+$2/mo" : "+$20/yr"}
+          </p>
+        </Box>
+        <Box
+          id="Customizable Profile"
+          onClick={addOnsHandler}
+          className={`${classes.box} ${
+            findAddOns(addOns, "Customizable Profile") && classes.selectedBox
+          }`}
+        >
+          <div className={classes.container}>
+            <div
+              className={`${classes.checkbox} ${
+                findAddOns(addOns, "Customizable Profile") && classes.checked
+              }`}
+            >
+              <img src={checkmark} alt="" width={13} height={13} />
+            </div>
+            <div className={classes.info}>
+              <p>Customizable Profile</p>
+              <span>Custom theme on your profile</span>
+            </div>
+          </div>
+          <p className={classes.price}>
+            {planTime === "Monthly" ? "+$2/mo" : "+$20/yr"}
+          </p>
         </Box>
       </Form>
     </>
