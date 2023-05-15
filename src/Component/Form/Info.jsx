@@ -57,12 +57,12 @@ export default function Info({
   };
 
   const [isNumberValid, setIsNumberValid] = useState(
-    info.Number === undefined ? false : true
+    info.Number === "" ? false : true
   );
   const [numberErrorMessage, setNumberErrorMessage] =
     useState(nameErrorMessage);
   const numberHandler = (e) => {
-    setInfo({ ...info, Number: undefined });
+    setInfo({ ...info, Number: "" });
     setInfo({ ...info, Number: e.target.value });
     if (validator.isMobilePhone(e.target.value)) {
       setIsNumberValid(true);
