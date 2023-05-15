@@ -57,15 +57,16 @@ export default function Info({
   };
 
   const [isNumberValid, setIsNumberValid] = useState(
-    info.Number === "" ? false : true
+    info.Number === undefined ? false : true
   );
   const [numberErrorMessage, setNumberErrorMessage] =
     useState(nameErrorMessage);
   const numberHandler = (e) => {
     setInfo({ ...info, Number: undefined });
+    setInfo({ ...info, Number: e.target.value });
     if (validator.isMobilePhone(e.target.value)) {
       setIsNumberValid(true);
-      setInfo({ ...info, Number: e.target.value });
+
       if (isEmailValid && isNameValid) {
         setIsInfoFormValid({ ...isInfoFormValid, isValid: true });
       }
