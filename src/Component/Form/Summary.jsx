@@ -3,6 +3,16 @@ import classes from "./Summary.module.scss";
 import Form from "../UI/Form";
 
 export default function Summry({ plan, addOns }) {
+  const calcTotal = () => {
+    let total = 0;
+    addOns.map((addOn) => {
+      total += addOn.price;
+    });
+
+    total += plan.price;
+
+    return total;
+  };
   return (
     <>
       <Form
@@ -11,7 +21,7 @@ export default function Summry({ plan, addOns }) {
       >
         <div className={classes.selections}>
           <div className={classes.info}>
-            <div className={classes.container}>
+            <div className={classes.plan}>
               {plan.selectedPlan} ({plan.time})<button>Change</button>
             </div>
             <span>
@@ -34,6 +44,12 @@ export default function Summry({ plan, addOns }) {
               })}
             </>
           )}
+        </div>
+        <div className={classes.total}>
+          Total (per {plan.time === "Monthly" ? "month" : "year"})
+          <span>
+            ${calcTotal()}/{plan.time === "Monthly" ? "mo" : "yr"}
+          </span>
         </div>
       </Form>
     </>

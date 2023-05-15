@@ -3,8 +3,8 @@
   gap: 1em;
 
   padding: 1em;
-  background-color: var(--clr-neutral-200);
 
+  background-color: var(--clr-neutral-200);
   color: var(--clr-primary-900);
 
   border-radius: 0.5em;
@@ -17,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
 
-    .container {
+    .plan {
       display: flex;
       flex-direction: column;
       align-items: start;
@@ -51,5 +51,22 @@
     height: 1px;
     width: 100%;
     background-color: var(--clr-neutral-700);
+  }
+}
+
+.total {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0.5em 1em;
+
+  color: var(--clr-neutral-700);
+  font-weight: var(--font-weight-light);
+
+  span {
+    font-weight: var(--font-weight-bold);
+    color: var(--clr-primary-700);
   }
 }
