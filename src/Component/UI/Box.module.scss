@@ -19,4 +19,9 @@
     margin: -1em;
     border-radius: 0.5em;
   }
+  &:hover {
+    cursor: pointer;
+
+    border-color: var(--clr-primary-700);
+  }
 }

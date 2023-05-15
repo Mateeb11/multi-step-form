@@ -16,7 +16,8 @@
     font-size: var(--font-size-small);
   }
 
-  .next {
+  .next,
+  .confirm {
     color: var(--clr-neutral-100);
     background-color: var(--clr-primary-900);
 
@@ -30,11 +31,22 @@
   .back {
     background-color: var(--clr-neutral-100);
     color: var(--clr-neutral-700);
+
+    &:hover {
+      color: var(--clr-primary-900);
+    }
   }
 
   .confirm {
     background-color: var(--clr-primary-700);
   }
+}
+
+.next:hover {
+  background-color: hsl(213, 96%, 35%);
+}
+.confirm:hover {
+  background-color: hsl(243, 100%, 79%);
 }
 
 @media (min-width: 870px) {

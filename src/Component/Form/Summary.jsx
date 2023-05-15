@@ -55,7 +55,8 @@ export default function Summry({ plan, addOns, setStep }) {
         <div className={classes.total}>
           Total (per {plan.time === "Monthly" ? "month" : "year"})
           <span>
-            ${calcTotal()}/{plan.time === "Monthly" ? "mo" : "yr"}
+            {plan.time === "Monthly" && "+"}${calcTotal()}/
+            {plan.time === "Monthly" ? "mo" : "yr"}
           </span>
         </div>
       </Form>

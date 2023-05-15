@@ -29,7 +29,9 @@ export default function Navigation({
       {!confirm && (
         <div className={classes.buttons}>
           <button
-            className={`${classes.next} ${step === 4 && classes.confirm}`}
+            className={`${step === 4 ? classes.confirm : classes.next} ${
+              step === 4 && classes.confirm
+            }`}
             onClick={nextHandler}
           >
             {step === 4 ? "Confirm" : "Next Step"}

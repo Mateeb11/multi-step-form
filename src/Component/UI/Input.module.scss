@@ -17,7 +17,9 @@
       color: var(--clr-neutral-700);
     }
 
-    &:focus {
+    &:focus,
+    &:hover {
+      cursor: pointer;
       outline: none;
       border: 1px solid var(--clr-primary-700);
     }

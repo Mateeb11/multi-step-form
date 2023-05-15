@@ -32,6 +32,11 @@
 
         text-decoration: underline;
         font-size: var(--font-size-small);
+
+        &:hover {
+          cursor: pointer;
+          color: var(--clr-primary-700);
+        }
       }
     }
 
@@ -74,5 +79,11 @@
 @media (min-width: 870px) {
   .selections {
     padding: 1.5em;
+  }
+  .total {
+    padding: 1em 1.5em;
+    span {
+      font-size: var(--font-size-semi-medium);
+    }
   }
 }

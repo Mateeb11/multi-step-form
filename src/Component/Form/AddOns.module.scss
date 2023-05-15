@@ -16,6 +16,8 @@
     display: flex;
     flex-direction: column;
 
+    gap: 0.25em;
+
     p {
       color: var(--clr-primary-900);
       font-weight: var(--font-weight-bold);
