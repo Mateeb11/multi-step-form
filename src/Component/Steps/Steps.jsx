@@ -19,7 +19,7 @@ export default function Steps({ step }) {
           </div>
           <div className={classes.stepText}>
             <p>STEP 2</p>
-            <span>YOUR INFO</span>
+            <span>SELECT PLAN</span>
           </div>
         </div>
         <div className={classes.stepContainer}>
@@ -28,7 +28,7 @@ export default function Steps({ step }) {
           </div>
           <div className={classes.stepText}>
             <p>STEP 3</p>
-            <span>YOUR INFO</span>
+            <span>ADD-ONS</span>
           </div>
         </div>
         <div className={classes.stepContainer}>
@@ -37,7 +37,7 @@ export default function Steps({ step }) {
           </div>
           <div className={classes.stepText}>
             <p>STEP 4</p>
-            <span>YOUR INFO</span>
+            <span>SUMMARY</span>
           </div>
         </div>
       </section>

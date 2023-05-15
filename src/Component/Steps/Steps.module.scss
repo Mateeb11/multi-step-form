@@ -18,7 +18,7 @@
     flex-direction: column;
     justify-content: center;
 
-    padding: 0.5em 0.75em;
+    padding: 0.5em 0.85em;
     width: 37px;
 
     border: 1px solid var(--clr-neutral-100);
@@ -39,16 +39,16 @@
   }
 }
 
-@media (min-width: 770px) {
+@media (min-width: 870px) {
   .container {
     flex-direction: column;
     justify-content: start;
     gap: 2em;
 
     background-image: url("../../../assets/images/bg-sidebar-desktop.svg");
-    background-size: contain;
+    // background-size: fill;
 
-    padding: 2em 4em 7em 1.5em;
+    padding: 2em 4em 9em 1.5em;
 
     margin-bottom: 7em;
 

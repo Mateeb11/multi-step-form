@@ -38,54 +38,62 @@ export default function Plan({ plan, setPlan }) {
       description=" You have the option of monthly or yearly billing."
       className={classes.form}
     >
-      <Box
-        className={plan.selectedPlan === "Arcade" && classes.selectedBox}
-        onClick={planHandler}
-        id="1"
-      >
-        <img src={arcadeImg} alt="arcade controller icon" />
-        <div className={classes.info}>
-          <h3 className={classes.title}>Arcade</h3>
-          <p className={classes.price}>
-            {plan.time === "Monthly" ? "$9/mo" : "$90/yr"}
-          </p>
-          {plan.time === "Yearly" && (
-            <p className={classes.offer}>2 months free</p>
-          )}
-        </div>
-      </Box>
-      <Box
-        className={plan.selectedPlan === "Advanced" && classes.selectedBox}
-        id="2"
-        onClick={planHandler}
-      >
-        <img src={advancedImg} alt="small controller icon" />
-        <div className={classes.info}>
-          <h3 className={classes.title}>Advanced</h3>
-          <p className={classes.price}>
-            {plan.time === "Monthly" ? "$12/mo" : "$120/yr"}
-          </p>
-          {plan.time === "Yearly" && (
-            <p className={classes.offer}>2 months free</p>
-          )}
-        </div>
-      </Box>
-      <Box
-        className={plan.selectedPlan === "Pro" && classes.selectedBox}
-        id="3"
-        onClick={planHandler}
-      >
-        <img src={proImg} alt="big controller icon" />
-        <div className={classes.info}>
-          <h3 className={classes.title}>Pro</h3>
-          <p className={classes.price}>
-            {plan.time === "Monthly" ? "$15/mo" : "$150/yr"}
-          </p>
-          {plan.time === "Yearly" && (
-            <p className={classes.offer}>2 months free</p>
-          )}
-        </div>
-      </Box>
+      <div className={classes.plans}>
+        <Box
+          className={`${classes.box} ${
+            plan.selectedPlan === "Arcade" && classes.selectedBox
+          }`}
+          onClick={planHandler}
+          id="1"
+        >
+          <img src={arcadeImg} alt="arcade controller icon" />
+          <div className={classes.info}>
+            <h3 className={classes.title}>Arcade</h3>
+            <p className={classes.price}>
+              {plan.time === "Monthly" ? "$9/mo" : "$90/yr"}
+            </p>
+            {plan.time === "Yearly" && (
+              <p className={classes.offer}>2 months free</p>
+            )}
+          </div>
+        </Box>
+        <Box
+          className={`${classes.box} ${
+            plan.selectedPlan === "Advanced" && classes.selectedBox
+          }`}
+          id="2"
+          onClick={planHandler}
+        >
+          <img src={advancedImg} alt="small controller icon" />
+          <div className={classes.info}>
+            <h3 className={classes.title}>Advanced</h3>
+            <p className={classes.price}>
+              {plan.time === "Monthly" ? "$12/mo" : "$120/yr"}
+            </p>
+            {plan.time === "Yearly" && (
+              <p className={classes.offer}>2 months free</p>
+            )}
+          </div>
+        </Box>
+        <Box
+          className={`${classes.box} ${
+            plan.selectedPlan === "Pro" && classes.selectedBox
+          }`}
+          id="3"
+          onClick={planHandler}
+        >
+          <img src={proImg} alt="big controller icon" />
+          <div className={classes.info}>
+            <h3 className={classes.title}>Pro</h3>
+            <p className={classes.price}>
+              {plan.time === "Monthly" ? "$15/mo" : "$150/yr"}
+            </p>
+            {plan.time === "Yearly" && (
+              <p className={classes.offer}>2 months free</p>
+            )}
+          </div>
+        </Box>
+      </div>
       <div className={classes.time}>
         <p className={plan.time === "Monthly" ? classes.checked : undefined}>
           Monthly

@@ -2,7 +2,7 @@
   padding-bottom: 7em;
 }
 
-@media (min-width: 770px) {
+@media (min-width: 870px) {
   .container {
     display: grid;
     grid-auto-flow: column;
@@ -14,5 +14,17 @@
     background-color: var(--clr-neutral-100);
 
     border-radius: 0.5em;
+
+    width: 800px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-inline: 1em;
+
+    margin-bottom: 1em;
   }
 }
