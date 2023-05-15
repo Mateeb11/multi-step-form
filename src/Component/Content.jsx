@@ -26,6 +26,8 @@ export default function Content() {
 
   const [addOns, setAddOns] = useState([]);
 
+  const [confirm, setConfirm] = useState(false);
+
   return (
     <>
       <main className={classes.container}>
@@ -49,6 +51,8 @@ export default function Content() {
           setStep={setStep}
           isFormValid={isInfoFormValid}
           setIsFormValid={setIsInfoFormValid}
+          confirm={confirm}
+          setConfirm={setConfirm}
         />
       </main>
     </>

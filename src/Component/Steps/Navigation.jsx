@@ -5,6 +5,8 @@ export default function Navigation({
   setStep,
   isFormValid,
   setIsFormValid,
+  confirm,
+  setConfirm,
 }) {
   const nextHandler = () => {
     if (step === 1) {
@@ -13,6 +15,7 @@ export default function Navigation({
         setStep(step + 1);
       }
     } else if (step === 4) {
+      setConfirm(true);
     } else {
       setStep(step + 1);
     }
@@ -23,19 +26,21 @@ export default function Navigation({
   };
   return (
     <>
-      <div className={classes.buttons}>
-        <button
-          className={`${classes.next} ${step === 4 && classes.confirm}`}
-          onClick={nextHandler}
-        >
-          {step === 4 ? "Confirm" : "Next Step"}
-        </button>
-        {step !== 1 && (
-          <button className={classes.back} onClick={backHandler}>
-            Go Back
+      {!confirm && (
+        <div className={classes.buttons}>
+          <button
+            className={`${classes.next} ${step === 4 && classes.confirm}`}
+            onClick={nextHandler}
+          >
+            {step === 4 ? "Confirm" : "Next Step"}
           </button>
-        )}
-      </div>
+          {step !== 1 && (
+            <button className={classes.back} onClick={backHandler}>
+              Go Back
+            </button>
+          )}
+        </div>
+      )}
     </>
   );
 }
