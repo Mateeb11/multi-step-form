@@ -33,33 +33,38 @@ export default function Content() {
     <>
       <main className={classes.container}>
         <Steps step={step} />
-
-        {step === 1 && (
-          <Info
-            isInfoFormValid={isInfoFormValid}
-            setIsInfoFormValid={setIsInfoFormValid}
-            info={info}
-            setInfo={setInfo}
+        <div className={classes.info}>
+          {step === 1 && (
+            <Info
+              isInfoFormValid={isInfoFormValid}
+              setIsInfoFormValid={setIsInfoFormValid}
+              info={info}
+              setInfo={setInfo}
+            />
+          )}
+          {step === 2 && <Plan plan={plan} setPlan={setPlan} />}
+          {step === 3 && (
+            <AddOns
+              addOns={addOns}
+              setAddOns={setAddOns}
+              planTime={plan.time}
+            />
+          )}
+          {step === 4 &&
+            (confirm ? (
+              <Confirmation />
+            ) : (
+              <Summry plan={plan} addOns={addOns} setStep={setStep} />
+            ))}
+          <Navigation
+            step={step}
+            setStep={setStep}
+            isFormValid={isInfoFormValid}
+            setIsFormValid={setIsInfoFormValid}
+            confirm={confirm}
+            setConfirm={setConfirm}
           />
-        )}
-        {step === 2 && <Plan plan={plan} setPlan={setPlan} />}
-        {step === 3 && (
-          <AddOns addOns={addOns} setAddOns={setAddOns} planTime={plan.time} />
-        )}
-        {step === 4 &&
-          (confirm ? (
-            <Confirmation />
-          ) : (
-            <Summry plan={plan} addOns={addOns} setStep={setStep} />
-          ))}
-        <Navigation
-          step={step}
-          setStep={setStep}
-          isFormValid={isInfoFormValid}
-          setIsFormValid={setIsInfoFormValid}
-          confirm={confirm}
-          setConfirm={setConfirm}
-        />
+        </div>
       </main>
     </>
   );

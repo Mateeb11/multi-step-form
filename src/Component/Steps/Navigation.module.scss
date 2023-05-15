@@ -36,3 +36,10 @@
     background-color: var(--clr-primary-700);
   }
 }
+
+@media (min-width: 770px) {
+  .buttons {
+    position: relative;
+    padding: 0;
+  }
+}

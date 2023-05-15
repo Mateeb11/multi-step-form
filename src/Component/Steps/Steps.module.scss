@@ -14,7 +14,8 @@
   min-height: 100%;
 
   .step {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
 
     padding: 0.5em 0.75em;
@@ -31,5 +32,45 @@
     color: var(--clr-primary-900);
 
     font-weight: var(--font-weight-bold);
+  }
+
+  .stepText {
+    display: none;
+  }
+}
+
+@media (min-width: 770px) {
+  .container {
+    flex-direction: column;
+    justify-content: start;
+    gap: 1.5em;
+
+    background-image: url("../../../assets/images/bg-sidebar-desktop.svg");
+
+    padding: 2em 2em 15.25em 2em;
+
+    .stepContainer {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      .stepText {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25em;
+
+        p {
+          color: var(--clr-primary-500);
+          font-weight: var(--font-weight-light);
+          font-size: var(--font-size-small);
+        }
+        span {
+          color: var(--clr-neutral-100);
+          font-size: var(--font-size-small);
+          font-weight: var(--font-weight-regular);
+          letter-spacing: 1px;
+        }
+      }
+    }
   }
 }

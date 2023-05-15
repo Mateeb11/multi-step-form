@@ -1,7 +1,10 @@
 html {
   background-color: var(--clr-neutral-400);
 }
-// body {
-//   display: grid;
-//   place-content: center;
-// }
+
+@media (min-width: 770px) {
+  body {
+    display: grid;
+    place-content: center;
+  }
+}
