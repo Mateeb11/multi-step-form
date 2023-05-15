@@ -70,3 +70,9 @@
     color: var(--clr-primary-700);
   }
 }
+
+@media (min-width: 870px) {
+  .selections {
+    padding: 1.5em;
+  }
+}
