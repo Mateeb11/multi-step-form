@@ -37,6 +37,8 @@ export default function AddOns({ addOns, setAddOns, planTime }) {
     } else {
       let addOnPrice = e.target.id === "Online service" ? 1 : 2;
 
+      planTime === "Yearly" && (addOnPrice *= 10);
+
       setAddOns([...addOns, { title: e.target.id, price: addOnPrice }]);
     }
   };

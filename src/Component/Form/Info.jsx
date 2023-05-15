@@ -62,7 +62,7 @@ export default function Info({
   const [numberErrorMessage, setNumberErrorMessage] =
     useState(nameErrorMessage);
   const numberHandler = (e) => {
-    setInfo({ ...info, Number: "" });
+    setInfo({ ...info, Number: undefined });
     if (validator.isMobilePhone(e.target.value)) {
       setIsNumberValid(true);
       setInfo({ ...info, Number: e.target.value });
@@ -80,9 +80,6 @@ export default function Info({
     }
   };
 
-  const formSubmitHandler = () => {
-    setIsInfoFormValid({ ...isInfoFormValid, isSubmitted: true });
-  };
   return (
     <Form
       title={"Presonal info"}

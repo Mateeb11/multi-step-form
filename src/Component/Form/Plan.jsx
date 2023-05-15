@@ -55,7 +55,7 @@ export default function Plan({ plan, setPlan }) {
         </div>
       </Box>
       <Box
-        className={plan.selectedPlan === "Advanced" && classes.selected}
+        className={plan.selectedPlan === "Advanced" && classes.selectedBox}
         id="2"
         onClick={planHandler}
       >
@@ -71,7 +71,7 @@ export default function Plan({ plan, setPlan }) {
         </div>
       </Box>
       <Box
-        className={plan.selectedPlan === "Pro" && classes.selected}
+        className={plan.selectedPlan === "Pro" && classes.selectedBox}
         id="3"
         onClick={planHandler}
       >

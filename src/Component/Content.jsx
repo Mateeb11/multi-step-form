@@ -24,10 +24,7 @@ export default function Content() {
     price: 9,
   });
 
-  const [addOns, setAddOns] = useState([
-    { title: "Online service", price: 1 },
-    { title: "Larger storage", price: 2 },
-  ]);
+  const [addOns, setAddOns] = useState([]);
 
   return (
     <>
