@@ -50,10 +50,27 @@ export default function AddOns({ addOns, setAddOns, planTime }) {
         title={"Pick add-ons"}
         description={"Add-ons help enhance your gaming experience."}
       >
-        <Box id="Online service" onClick={addOnsHandler}>
-          <div className={classes.checkbox}>
-            <img src={checkmark} alt="" width={13} height={13} />
+        <Box
+          id="Online service"
+          onClick={addOnsHandler}
+          className={`${classes.box} ${
+            findAddOns(addOns, "Online service") && classes.selectedBox
+          }`}
+        >
+          <div className={classes.container}>
+            <div
+              className={`${classes.checkbox} ${
+                findAddOns(addOns, "Online service") && classes.checked
+              }`}
+            >
+              <img src={checkmark} alt="" width={13} height={13} />
+            </div>
+            <div className={classes.info}>
+              <p>Online service</p>
+              <span>Access to multiplayer games</span>
+            </div>
           </div>
+          <p className={classes.price}>+$10/yr</p>
         </Box>
       </Form>
     </>

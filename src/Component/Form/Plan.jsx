@@ -39,7 +39,7 @@ export default function Plan({ plan, setPlan }) {
       className={classes.form}
     >
       <Box
-        className={plan.selectedPlan === "Arcade" && classes.selected}
+        className={plan.selectedPlan === "Arcade" && classes.selectedBox}
         onClick={planHandler}
         id="1"
       >

@@ -1,19 +1,68 @@
-.checkbox {
-  padding: 0.25em;
+.box {
+  display: grid;
+  grid-auto-flow: column;
 
-  border: 1px solid var(--clr-neutral-600);
-  border-radius: 0.25em;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0em;
 
-  img {
-    visibility: hidden;
+  .container {
+    display: flex;
+    align-items: center;
+
+    gap: 1em;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      color: var(--clr-primary-900);
+      font-weight: var(--font-weight-bold);
+    }
+
+    span {
+      font-size: var(--font-size-smaller);
+      color: var(--clr-neutral-700);
+    }
+  }
+  .price {
+    font-size: var(--font-size-smaller);
+    color: var(--clr-primary-700);
+  }
+
+  @media (min-width: 425px) {
+    .info span,
+    .price {
+      font-size: var(--font-size-small);
+    }
+  }
+
+  .checkbox {
+    padding: 0.25em;
+
+    border: 1px solid var(--clr-neutral-600);
+    border-radius: 0.25em;
+
+    flex-shrink: 0;
+
+    img {
+      visibility: hidden;
+    }
   }
 
   .checked {
-    background-color: red;
+    background-color: var(--clr-primary-700);
 
-    border: none;
+    border: 1px solid var(--clr-primary-700);
     img {
       visibility: visible;
     }
   }
+}
+
+.selectedBox {
+  background-color: var(--clr-neutral-400);
+  border-color: var(--clr-primary-700) !important;
 }
