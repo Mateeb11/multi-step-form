@@ -1,0 +1,19 @@
+.checkbox {
+  padding: 0.25em;
+
+  border: 1px solid var(--clr-neutral-600);
+  border-radius: 0.25em;
+
+  img {
+    visibility: hidden;
+  }
+
+  .checked {
+    background-color: red;
+
+    border: none;
+    img {
+      visibility: visible;
+    }
+  }
+}

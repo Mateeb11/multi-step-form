@@ -4,11 +4,12 @@ import classes from "./Content.module.scss";
 
 import Info from "./Form/Info";
 import Plan from "./Form/Plan";
+import AddOns from "./Form/AddOns";
 import Steps from "./Steps/Steps";
 import Navigation from "./Steps/navigation";
 
 export default function Content() {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
 
   const [info, setInfo] = useState({ Name: "", Email: "", Number: "" });
   const [isInfoFormValid, setIsInfoFormValid] = useState({
@@ -21,6 +22,8 @@ export default function Content() {
     time: "Monthly",
     price: 9,
   });
+
+  const [addOns, setAddOns] = useState([]);
 
   return (
     <>
@@ -36,13 +39,16 @@ export default function Content() {
           />
         )}
         {step === 2 && <Plan plan={plan} setPlan={setPlan} />}
+        {step === 3 && (
+          <AddOns addOns={addOns} setAddOns={setAddOns} planTime={plan.time} />
+        )}
+        <Navigation
+          step={step}
+          setStep={setStep}
+          isFormValid={isInfoFormValid}
+          setIsFormValid={setIsInfoFormValid}
+        />
       </main>
-      <Navigation
-        step={step}
-        setStep={setStep}
-        isFormValid={isInfoFormValid}
-        setIsFormValid={setIsInfoFormValid}
-      />
     </>
   );
 }
