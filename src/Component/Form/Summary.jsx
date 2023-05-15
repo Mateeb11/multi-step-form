@@ -2,7 +2,7 @@ import classes from "./Summary.module.scss";
 
 import Form from "../UI/Form";
 
-export default function Summry({ plan, addOns }) {
+export default function Summry({ plan, addOns, setStep }) {
   const calcTotal = () => {
     let total = 0;
     addOns.map((addOn) => {
@@ -22,7 +22,14 @@ export default function Summry({ plan, addOns }) {
         <div className={classes.selections}>
           <div className={classes.info}>
             <div className={classes.plan}>
-              {plan.selectedPlan} ({plan.time})<button>Change</button>
+              {plan.selectedPlan} ({plan.time})
+              <button
+                onClick={() => {
+                  setStep(2);
+                }}
+              >
+                Change
+              </button>
             </div>
             <span>
               ${plan.price}/{plan.time === "Monthly" ? "mo" : "yr"}

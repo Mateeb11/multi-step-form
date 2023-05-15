@@ -46,7 +46,7 @@ export default function Content() {
         {step === 3 && (
           <AddOns addOns={addOns} setAddOns={setAddOns} planTime={plan.time} />
         )}
-        {step === 4 && <Summry plan={plan} addOns={addOns} />}
+        {step === 4 && <Summry plan={plan} addOns={addOns} setStep={setStep} />}
         <Navigation
           step={step}
           setStep={setStep}
