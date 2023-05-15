@@ -12,3 +12,16 @@
     height: 60px;
   }
 }
+
+@media (min-width: 870px) {
+  .thankyou {
+    font-size: var(--font-size-large);
+
+    padding-block: 6em 4em;
+
+    img {
+      width: 90px;
+      height: 90px;
+    }
+  }
+}
