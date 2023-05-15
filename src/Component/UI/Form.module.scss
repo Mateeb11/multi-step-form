@@ -15,14 +15,15 @@
   -webkit-box-shadow: 1px 10px 38px -35px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 1px 10px 38px -35px rgba(0, 0, 0, 0.35);
 
-  h1 {
+  .title {
     font-size: var(--font-size-large);
 
     color: var(--clr-primary-900);
   }
-  p {
+  .description {
     line-height: 1.5;
-
+    font-weight: var(--font-weight-light);
+    font-size: var(--font-size-small);
     color: var(--clr-neutral-700);
   }
 }
@@ -36,5 +37,13 @@
 
     padding: 0;
     padding-block: 2em;
+
+    .title {
+      font-size: var(--font-size-larger);
+    }
+    .description {
+      margin-top: -0.5em;
+      margin-bottom: 1.5em;
+    }
   }
 }
