@@ -1,0 +1,14 @@
+.thankyou {
+  justify-items: center;
+  text-align: center;
+
+  padding-block: 6em;
+
+  gap: 1.25em;
+
+  img {
+    order: -1;
+    width: 60px;
+    height: 60px;
+  }
+}
