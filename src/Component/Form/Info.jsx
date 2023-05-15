@@ -85,39 +85,41 @@ export default function Info({
       title={"Presonal info"}
       description={"Please provide your name, email address, and phone number."}
     >
-      <Input
-        title={"Name"}
-        type={"text"}
-        name={"name"}
-        value={info.Name}
-        placeholder={"e.g Stephen King"}
-        onChange={nameHandler}
-        errorMessage={nameErrorMessage}
-        isValid={isNameValid}
-        isSubmitted={isInfoFormValid.isSubmitted}
-      />
-      <Input
-        title={"Email Address"}
-        type={"email"}
-        name={"email"}
-        value={info.Email}
-        placeholder={"e.g stephenking@lorem.com"}
-        onChange={emailHandler}
-        errorMessage={emailErrorMessage}
-        isValid={isEmailValid}
-        isSubmitted={isInfoFormValid.isSubmitted}
-      />
-      <Input
-        title={"Phone Number"}
-        type={"number"}
-        name={"phone number"}
-        value={info.Number}
-        placeholder={"e.g +966 123456789"}
-        onChange={numberHandler}
-        errorMessage={numberErrorMessage}
-        isValid={isNumberValid}
-        isSubmitted={isInfoFormValid.isSubmitted}
-      />
+      <div className={classes.container}>
+        <Input
+          title={"Name"}
+          type={"text"}
+          name={"name"}
+          value={info.Name}
+          placeholder={"e.g Stephen King"}
+          onChange={nameHandler}
+          errorMessage={nameErrorMessage}
+          isValid={isNameValid}
+          isSubmitted={isInfoFormValid.isSubmitted}
+        />
+        <Input
+          title={"Email Address"}
+          type={"email"}
+          name={"email"}
+          value={info.Email}
+          placeholder={"e.g stephenking@lorem.com"}
+          onChange={emailHandler}
+          errorMessage={emailErrorMessage}
+          isValid={isEmailValid}
+          isSubmitted={isInfoFormValid.isSubmitted}
+        />
+        <Input
+          title={"Phone Number"}
+          type={"number"}
+          name={"phone number"}
+          value={info.Number}
+          placeholder={"e.g +966 123456789"}
+          onChange={numberHandler}
+          errorMessage={numberErrorMessage}
+          isValid={isNumberValid}
+          isSubmitted={isInfoFormValid.isSubmitted}
+        />
+      </div>
     </Form>
   );
 }

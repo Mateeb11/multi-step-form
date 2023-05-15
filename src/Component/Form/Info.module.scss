@@ -1,10 +1,10 @@
 .container {
   display: grid;
   gap: 1em;
+}
 
-  padding: 1.5em;
-
-  background-color: var(--clr-neutral-100);
-
-  border-radius: 0.5em;
+@media (min-width: 870px) {
+  .container {
+    gap: 1.5em;
+  }
 }
